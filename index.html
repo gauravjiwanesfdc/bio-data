@@ -134,6 +134,32 @@
             padding-left: 0;
         }
 
+        /* expectation row: keep these specific info-cards on a single row
+           but allow them to shrink so they don't overflow the main container */
+        .expectation-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap; /* keep single row on normal screens */
+        }
+
+        .expectation-row .info-card {
+            flex: 1 1 0;    /* allow cards to shrink/grow to fit the row */
+            min-width: 0;   /* allow shrinking below content width */
+            margin-bottom: 0; /* remove extra bottom margin so row stays tight */
+        }
+
+        @media (max-width: 600px) {
+            /* On small screens allow wrapping so items don't overflow */
+            .expectation-row {
+                flex-wrap: wrap;
+            }
+            .expectation-row .info-card {
+                flex: 1 1 45%; /* two per row on small screens when wrapped */
+            }
+        }
+
         .info-card {
             background: #f8f9fa;
             padding: 10px;
@@ -278,10 +304,13 @@
                         <h3>नोकरी</h3>
                         <p>ग्लोबललॉजिक, मिहान, नागपूर (GlobalLogic, Mihan, Nagpur)</p>
                     </div>
-                    <!-- <div class="info-card">
+                    
+                    <div class="info-card">
                         <h3>पगार</h3>
-                        <p>₹ &nbsp;12.65 लाख प्रति वर्ष</p>
-                    </div> -->
+                        <p>नंतर कळवले जाईल</p>
+                    </div>
+                    
+                    
                     
                 </div>
                 
@@ -311,6 +340,33 @@
                         <h3>वडीलांचा व्यवसाय</h3>
                         <p>सरकारी नोकरी</p>
                     </div>
+                    <div class="info-card">
+                        <h3>मामेकुळ</h3>
+                        <p>नगरळे</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>अपेक्षा</h2>
+                <div class="family-grid expectation-row">
+                    <div class="info-card">
+                        <p>शिक्षित</p>
+                    </div>
+
+                    <div class="info-card">
+                        <p>कौटुंबिक मूल्ये जपणारी</p>
+                    </div>
+
+                    <div class="info-card">
+                        <p>प्रामाणिक आणि सन्मानशील</p>
+                    </div>
+
+                    <div class="info-card">
+                        <p>नोकरी असावी</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -332,6 +388,8 @@
                 </div>
             </div>
         </div>
+
+        
 </body>
 
 </html>
